@@ -1,7 +1,12 @@
 @import "../../index.scss";
 
-.secondary-nav {
+
+#mainnav {
     background-color: $main-color;
+}
+
+.navbar .navbar-collapse {
+    text-align: center;
 }
 
 li:hover {
@@ -64,9 +69,8 @@ li:hover {
 @media only screen and (max-width: 767px) {
     li:hover {
         margin-right: 5px;
-        background-color: $secondary-color;
         a:hover {
-            color: $main-color;
+            color: $secondary-hover-color;
         }
     }
 
@@ -86,9 +90,5 @@ li:hover {
 
     span img {
         padding-top: 2px;
-    }
-
-    #mainnav {
-        background-color: $main-color;
     }
 }
