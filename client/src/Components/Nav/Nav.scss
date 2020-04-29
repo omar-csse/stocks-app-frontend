@@ -2,7 +2,7 @@
 
 
 #mainnav {
-    background-color: $main-color;
+    background-color: $background-color;
 }
 
 .navbar .navbar-collapse {
@@ -21,17 +21,17 @@ li:hover {
 
 .nav-item {
     a {
-        color: $secondary-color;
+        color: $color;
     }
 }
 
 #mainnav {
     i {
-        color: $secondary-color;
+        color: $color;
         font-size: 45px
     }
     i:hover {
-        color: $secondary-hover-color;
+        color: $color-hover;
     }
 }
 
@@ -43,7 +43,7 @@ li:hover {
 
 .nav-item {
     a:hover {
-        color: $secondary-hover-color;
+        color: $color-hover;
     }
 }
 
@@ -70,7 +70,7 @@ li:hover {
     li:hover {
         margin-right: 5px;
         a:hover {
-            color: $secondary-hover-color;
+            color: $color-hover;
         }
     }
 

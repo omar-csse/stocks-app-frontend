@@ -8,9 +8,9 @@
 }
 
 .form .login-btn, .form .signup-btn {
-    background: $secondary-color;
+    background: $color;
     font-size: 25px;
-    color: $main-color;
+    color: $background-color;
     text-align: center;
     min-width: 200px;
     max-width: 200px;
@@ -18,8 +18,8 @@
 }
 
 .form .login-btn:hover, .form .signup-btn:hover {
-    background-color: $main-color;
-    color: $secondary-color;
+    background-color: $color-hover;
+    color: $background-color;
 }
 
 .login form, .signup form {
@@ -33,21 +33,21 @@
 }
 
 .row label a:hover,  .row label a:hover {
-    color: $main-color;
+    color: $color-hover;
 }
 
 .row label, .row label a {
-    color: $secondary-color;
+    color: $color;
 }
 
 ::placeholder, ::-webkit-input-placeholder {
-    color: $secondary-color !important;
+    color: $color !important;
 }
 
 .login input, .signup input {
     background: #FFFFFF;
     border: 1px solid;
-    border-color: $secondary-color;
+    border-color: $color;
     font-size: 20px;
     height: 40px;
     margin: 0 auto;

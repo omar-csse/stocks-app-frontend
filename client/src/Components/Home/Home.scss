@@ -22,20 +22,20 @@
 .home h1 b {
     font-size: 1.5em;
     font-style: italic;
-    color: $secondary-color;
+    color: $color;
 }
 
 .home p {
     font-style: italic;
     font-size: 1.5em;
-    color: $secondary-color;
+    color: $color;
     margin: 0 !important;
 }
 
 .home .login-btn, .home .signup-btn {
-    background: $secondary-color;
+    background: $color;
     font-size: 25px;
-    color: $main-color;
+    color: $background-color;;
     text-align: center;
     min-width: 180px;
     max-width: 180px;
@@ -43,8 +43,8 @@
 }
 
 .home .login-btn:hover, .home .signup-btn:hover {
-    background-color: $secondary-hover-color;
-    color: $main-color;
+    background-color: $color-hover;
+    color: $background-color;;
 }
 
 .home form {
