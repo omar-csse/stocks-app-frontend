@@ -7,6 +7,14 @@
     -moz-border-radius: 0px 0px 5px 5px;
     border-radius: 0px 0px 5px 5px;
 
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
     i {
         color: $color;
         font-size: 45px
