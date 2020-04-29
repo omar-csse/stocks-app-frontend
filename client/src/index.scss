@@ -1,11 +1,15 @@
-$background-color: #061F2F;
+$background-color: #051825;
+$secondary-background: #061F2F;
 $color: #0090D4;
 $color-hover: #7CD5FF;
 
+* {
+    outline: none !important;
+}
 
-html, body, #root, .App {
+html, body, #root, .app {
 	height: 100%;
-	width: 100%;
+    width: 100%;
 }
 
 body {

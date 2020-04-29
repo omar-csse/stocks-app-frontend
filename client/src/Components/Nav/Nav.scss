@@ -3,29 +3,10 @@
 
 #mainnav {
     background-color: $background-color;
-}
+    -webkit-border-radius: 0px 0px 5px 5px;
+    -moz-border-radius: 0px 0px 5px 5px;
+    border-radius: 0px 0px 5px 5px;
 
-.navbar .navbar-collapse {
-    text-align: center;
-}
-
-li:hover {
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-}
-
-.navbg {
-    padding-left: 2px;
-}
-
-.nav-item {
-    a {
-        color: $color;
-    }
-}
-
-#mainnav {
     i {
         color: $color;
         font-size: 45px
@@ -35,22 +16,28 @@ li:hover {
     }
 }
 
-#mainnav {
-    -webkit-border-radius: 0px 0px 5px 5px;
-    -moz-border-radius: 0px 0px 5px 5px;
-    border-radius: 0px 0px 5px 5px;
+.navbar .navbar-collapse {
+    flex-grow: 0;
+    text-align: center;
+    padding-left: 2px;
+}
+
+li:hover {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
 }
 
 .nav-item {
+    a {
+        color: $color;
+    }
     a:hover {
         color: $color-hover;
     }
 }
 
 .navbar-nav {
-
-    margin-right: 63px;
-
     li {
         padding-left: 50px;
     }
@@ -66,7 +53,74 @@ li:hover {
     padding-top: 4px;
 }
 
+.sun-light {
+    color: yellow;
+}
+
+.moon-light {
+    color: slateblue;
+}
+
+.icons-dark {
+    color: grey;
+}
+
+.toggle-container {
+    margin-left: 50%;
+}
+
+.toggle-container > span {
+    font-size: 1.2em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.toggle > span {
+    padding-left: 5px;
+    padding-right: 3px;
+}
+
+.toggle {
+    margin-top: 10px;
+    background-color: #555;
+    width: 50px;
+    height: 25px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+input[type="checkbox"].checkbox {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+input[type="checkbox"].checkbox:checked + label {
+    left: 3px;
+}
+
+input[type="checkbox"].checkbox + label {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: absolute;
+    left: 26.5px;
+    background-color: cyan;
+}
+
 @media only screen and (max-width: 767px) {
+
+    .navlogo {
+        margin-left: 0px;
+    }
+
     li:hover {
         margin-right: 5px;
         a:hover {
@@ -90,5 +144,17 @@ li:hover {
 
     span img {
         padding-top: 2px;
+    }
+}
+
+@media only screen and (max-width: 500px) { 
+    .toggle-container {
+        margin-left: 5%
+    }
+}
+
+@media only screen and (max-width: 340px) { 
+    .toggle-container {
+        margin-left: 7%
     }
 }

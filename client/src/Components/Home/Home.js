@@ -8,16 +8,16 @@ const Home = (props) => {
 
     useEffect(() => {
         document.getElementById("navbarSupportedContent").classList.remove("show");
-    });
+    }, []);
 
 	return (
 		<div className="home">
 			<div className="left">
-				<h1><b>Stocks App</b></h1>
+				<h1>Stocks App</h1>
 				<p className="pt-3">Using modern visualization approach</p>
 				<form>
-					<Link to="/login" className="login-btn btn btn-lg w-50">Log in</Link>
-					<Link to="/signup" className="signup-btn btn btn-lg w-50">Sign up</Link>
+					<Link to="/login" className="login-btn btn">Log in</Link>
+					<Link to="/signup" className="signup-btn btn">Sign up</Link>
 				</form>	
 			</div>
 			<div className="right">

@@ -1,10 +1,13 @@
 @import "../../index.scss";
 
+
 .login form, .signup form {
     margin: auto;
     height: 330px;
     min-width: 290px;
     max-width: 400px;
+    border: 0px;
+    padding: 20px;
 }
 
 .form .login-btn, .form .signup-btn {
@@ -14,18 +17,13 @@
     text-align: center;
     min-width: 200px;
     max-width: 200px;
-    border-radius: 12px;
+    border-radius: .3em;
 }
 
-.form .login-btn:hover, .form .signup-btn:hover {
+.form .login-btn:hover, .form .signup-btn:hover, .form .login-btn:focus, .form .signup-btn:focus {
     background-color: $color-hover;
     color: $background-color;
-}
-
-.login form, .signup form {
-    background: #FFFFFF;
-    border: 0px;
-    padding: 20px;
+    transform: scale(1.03);
 }
 
 .row label a {
@@ -45,8 +43,7 @@
 }
 
 .login input, .signup input {
-    background: #FFFFFF;
-    border: 1px solid;
+    border: 2px solid;
     border-color: $color;
     font-size: 20px;
     height: 40px;
