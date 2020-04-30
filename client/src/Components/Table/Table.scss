@@ -1,0 +1,93 @@
+.table {
+    margin-top: 40px;
+    table {
+        margin: 0 auto;
+        border-spacing: 0;
+        width: 80%;
+    } 
+    tr:hover, tr:nth-child(even):hover {
+        cursor: pointer;
+    }
+    td, th {
+        text-align: left;
+        margin: 0;
+        padding: 0.5rem;
+    }
+}
+
+.pagination {
+    button {
+        margin-left: 5px;
+        margin-right: 5px;
+        border: 1px solid #051825;
+        border-radius: 3px;
+    }
+
+    .pagenumber {
+        margin-left: 10px;
+        margin-right: 20px;
+    }
+
+    padding-top: 2em;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+
+.dark {
+    .table table {
+        color: #f8f8ff;
+        border-top: 2px solid #1B315B;
+        border-bottom: 1px solid #051825;
+        
+        th {
+            border-bottom: 2px solid #051825;
+        }
+
+        tr {
+            background-color: #263450;
+            border-bottom: 2px solid #051825;
+        }
+    
+        tr:hover, tr:nth-child(even):hover {
+            background-color: #1B315B;
+        }
+    
+        tr:nth-child(even), th {
+            background-color: #324264;
+        }
+    }
+}
+
+
+.light {
+    .table table {
+        color: #051825;
+        border-top: 2px solid #9b9b9b;
+        border-bottom: 1px solid #9b9b9b;
+
+        th {
+            border-bottom: 2px solid #9b9b9b;;
+        }
+    
+        tr {
+            background-color: white;
+            border-bottom: 0.1px solid #dfdfdf;
+        }
+    
+        tr:hover, tr:nth-child(even):hover {
+            background-color: #e2e2e5;
+        }
+    
+        tr:nth-child(even), th {
+            background-color: #f0f0f0f0;
+        }
+    }
+}
+
+// @media only screen and (max-width: 970px) {
+//     .table {
+//         table {
+//             width: 100% !important;
+//         } 
+//     }
+// }
