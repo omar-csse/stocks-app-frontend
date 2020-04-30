@@ -3,14 +3,14 @@ import { useTable, usePagination } from 'react-table'
 import './Table.scss';
 
 
-const Table = ({ columns, data, classes }) => {
+const Table = ({ columns, data }) => {
 
     const { headerGroups, prepareRow, page, canPreviousPage, canNextPage, pageOptions,
     pageCount, gotoPage, nextPage, previousPage, setPageSize, state: { pageIndex, pageSize },
   } = useTable( { columns,data, initialState: { pageIndex: 0, pageSize: 25 }, }, usePagination )
 
   return (
-    <div className={classes}>
+    <div className="table">
         <table>
             <thead>
                 <tr>

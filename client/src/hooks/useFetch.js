@@ -5,21 +5,24 @@ const useFetch = (url, options) => {
 
     const [data, setData] = useState(null)
     const [error, setError] = useState(null)
-    const [isLoading, setIsLoading] = useState(false)
+    const [res, setResponse] = useState(null)
 
     useEffect(() => {
 
-        setIsLoading(true)
-
         fetch(url, options)
-            .then(res => res.json())
+            .then(res => {
+                setResponse({status: res.status, text: res.statusText})
+                return res.json()
+            })
             .then(data => setData(data))
-            .then(setIsLoading(false))
-            .catch(err => setError(err))
+            .catch(err => {
+                console.log("dsfsfsfsfsf")
+                setError(err)
+            })
 
     }, [url, options])
 
-    return {data, error, isLoading}
+    return {data, error, res}
 }
 
 export default useFetch;

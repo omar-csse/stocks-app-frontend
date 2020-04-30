@@ -1,0 +1,53 @@
+@import "../../index.scss";
+
+
+.loading {
+    margin: 0 auto;
+}
+
+.spinner {
+
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+  
+    border: 5px solid $color;
+    border-radius: 50%;
+    background: transparent;
+    position: relative;
+    right: 6px;
+  
+    animation-name: rotate-s-loader;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+
+}
+
+.dark {
+    .spinner {
+        border-left-color: $background-color;
+    }
+}
+
+.light {
+    .spinner {
+        border-left-color: white;
+    }
+}
+
+@keyframes rotate-s-loader {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .loading {
+        width: 120px;
+        height: 120px;
+    }
+}

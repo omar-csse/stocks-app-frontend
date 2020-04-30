@@ -13,7 +13,7 @@ const Home = (props) => {
 	return (
 		<div className="home">
             <Logo class="logo text-center" height="300" width="300"/>
-            <Stocks />
+            <div className="stocks"> <Stocks /> </div>
 		</div>
 	);
 }

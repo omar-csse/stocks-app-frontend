@@ -1,8 +1,11 @@
 import React, { useMemo } from 'react';
+import './Stocks.scss'
 import useFetch from '../../hooks/useFetch'
-
 import tableHeader from './Header'
 import Table from '../Table/Table'
+import Error from '../Error/Error'
+import Loading from '../Loading/Loading'
+
 
 const Stocks = (props) => {
 
@@ -10,17 +13,15 @@ const Stocks = (props) => {
         method: 'GET',
     }), []);
 
-    const { data, error, isLoading } = useFetch("http://131.181.190.87:3000/stocks/symbols", options)
+    const { data, error, res } = useFetch("http://131.181.190.87:3000/stocks/symbols", options)
 
     const columns = useMemo(() => tableHeader, [])
     const memData = useMemo(() => data, [data])
 
-    if (isLoading) return <div>Loading...</div>
-    if (error) return <div>error</div>
+    if (error) return <Error error={error} res={res} />
+    if (data) return data.error ? <Error error={data} res={res} /> : <Table columns={columns} data={memData} />
 
-    return (
-        <Table classes="table" columns={columns} data={memData || []} />
-    );
+    return <Loading />
 }
 
-export default React.memo(Stocks);
+export default Stocks;
