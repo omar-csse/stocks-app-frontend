@@ -27,7 +27,7 @@ const Login = (props) => {
 						<button type="submit" disabled={submitting} className="login-btn btn btn-lg w-50">Login</button>
 					</div>
 					<div className="position-relative form-group mt-5 text-center">
-						<label>New to chatty? <Link to="/signup">Register here</Link></label>
+						<label>New to chatty? <Link to="/register">Register here</Link></label>
 					</div>
 				</form>}
 			</Form>
