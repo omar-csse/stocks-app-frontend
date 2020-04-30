@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import useFetch from '../hooks/useFetch'
+import useFetch from '../../hooks/useFetch'
 
 import tableHeader from './Header'
 import Table from '../Table/Table'
