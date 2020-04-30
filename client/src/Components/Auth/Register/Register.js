@@ -4,7 +4,7 @@ import { validate } from './validation';
 import { Form, Field } from 'react-final-form'
 
 
-const Signup = (props) => {
+const Register = (props) => {
 
 	const renderInput = ({input, meta, type, placeholder}) =>
 		<div className="form-group">
@@ -18,14 +18,14 @@ const Signup = (props) => {
 	}
 
 	return (
-		<div className="signup">
+		<div className="register">
 			<Form onSubmit={onSubmit} validate={validate}>
 				{({handleSubmit, submitting}) => <form onSubmit={handleSubmit}>
 					<Field name="username" placeholder="username" type="text" component={renderInput}/>
 					<Field placeholder="email" type="email" name="email" component={renderInput}/>
 					<Field placeholder="password" type="password" name="password" component={renderInput}/>
 					<div className="position-relative form-group mt-5">
-						<button type="submit" disabled={submitting} className="btn signup-btn btn-lg w-50">Sign up</button>
+						<button type="submit" disabled={submitting} className="btn register-btn btn-lg w-50">Register</button>
 					</div>
 					<div className="position-relative form-group mt-5 pb-5 text-center">
 						<label>Already a chatty member? <Link to="/login">Login</Link></label>
@@ -36,4 +36,4 @@ const Signup = (props) => {
 	);
 }
 
-export default Signup;
+export default Register;

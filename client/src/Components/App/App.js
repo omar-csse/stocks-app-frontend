@@ -15,7 +15,7 @@ const App = () => {
                 <div className="container">
                     <Switch>
                         <Route exact path="/" component={Home}/>	
-                        <Route path="/signup" render={() => <Auth path="/signup"/>}/>
+                        <Route path="/register" render={() => <Auth path="/signup"/>}/>
                         <Route path="/login" render={() => <Auth path="/login"/>}/>
                     </Switch>
                 </div>

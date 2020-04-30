@@ -6,11 +6,13 @@
     background-color: $background-color;
     color: #f8f8ff;
 
-    p, h1, h2, h3, h4, h5, b {
+    p, h1, h2, h3, h4, h5, b, span {
         color: #f8f8ff;
     }
 }
 
 .light {
-    color: $color;
+    p, h1, h2, h3, h4, h5, b, span {
+        color: $color;
+    }
 }
