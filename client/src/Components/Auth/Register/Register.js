@@ -21,7 +21,6 @@ const Register = (props) => {
 		<div className="register">
 			<Form onSubmit={onSubmit} validate={validate}>
 				{({handleSubmit, submitting}) => <form onSubmit={handleSubmit}>
-					<Field name="username" placeholder="username" type="text" component={renderInput}/>
 					<Field placeholder="email" type="email" name="email" component={renderInput}/>
 					<Field placeholder="password" type="password" name="password" component={renderInput}/>
 					<div className="position-relative form-group mt-5">

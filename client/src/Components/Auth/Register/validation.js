@@ -1,13 +1,10 @@
 import * as emailValidator from 'email-validator';
-import { usernameRegExp, passwordRegExp } from '../Regexp.js'
+import { passwordRegExp } from '../Regexp.js'
 
 
 export const validate = values => {
 	const errors = {}
 
-    if (!usernameRegExp.test(values.username) || values.username === undefined) {
-        errors.username = 'invalid username';
-    }
 	if (!emailValidator.validate(values.email)) {
         errors.email = 'Please, enter a valid email';
     }

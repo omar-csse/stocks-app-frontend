@@ -7,13 +7,13 @@ import Error from '../Error/Error'
 import Loading from '../Loading/Loading'
 
 
-const Stocks = (props) => {
+const Stocks = ({ query }) => {
 
     const options = useMemo(() => ({
         method: 'GET',
     }), []);
 
-    const { data, error, res } = useFetch("http://131.181.190.87:3000/stocks/symbols", options)
+    const { data, error, res } = useFetch(`http://131.181.190.87:3000/stocks/symbols${query}`, options)
 
     const columns = useMemo(() => tableHeader, [])
     const memData = useMemo(() => data, [data])

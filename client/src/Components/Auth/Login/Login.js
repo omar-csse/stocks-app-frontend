@@ -21,7 +21,7 @@ const Login = (props) => {
 		<div className="login">
 			<Form onSubmit={onSubmit} validate={validate}>
 				{({handleSubmit, submitting}) => <form onSubmit={handleSubmit}>
-					<Field name="identifier" placeholder="username or email" type="text" component={renderInput}/>
+					<Field name="identifier" placeholder="email" type="text" component={renderInput}/>
 					<Field name="password" placeholder="password" type="password" component={renderInput}/>
 					<div className="position-relative form-group text-center mt-5">
 						<button type="submit" disabled={submitting} className="login-btn btn btn-lg w-50">Login</button>

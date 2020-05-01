@@ -15,10 +15,7 @@ const useFetch = (url, options) => {
                 return res.json()
             })
             .then(data => setData(data))
-            .catch(err => {
-                console.log("dsfsfsfsfsf")
-                setError(err)
-            })
+            .catch(err => setError(err))
 
     }, [url, options])
 
