@@ -10,7 +10,7 @@ const Table = ({ columns, data }) => {
   } = useTable( { columns,data, initialState: { pageIndex: 0, pageSize: 25 }, }, usePagination )
 
   return (
-    <div className="table">
+    <div className="comm-table">
         <table>
             <thead>
                 <tr>
@@ -35,7 +35,7 @@ const Table = ({ columns, data }) => {
             <button onClick={() => nextPage()} disabled={!canNextPage}> {'>'} </button>
             <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}> {'>>'} </button>
             <span className="pagenumber"> Page <strong> {pageIndex + 1} of {pageOptions.length} </strong></span>
-            <select value={pageSize} onChange={e => {setPageSize(Number(e.target.value))}} >
+            <select className="comm-select" value={pageSize} onChange={e => {setPageSize(Number(e.target.value))}} >
             {[25, 50].map(pageSize => (
                 <option key={pageSize} value={pageSize}> 
                     Show {pageSize}

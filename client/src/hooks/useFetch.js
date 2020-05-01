@@ -5,12 +5,13 @@ const useFetch = (url, options) => {
 
     const [data, setData] = useState(null)
     const [error, setError] = useState(null)
-    const [res, setResponse] = useState(null)
+    const [res, setResponse] = useState({status: '', text: ''})
 
     useEffect(() => {
 
         fetch(url, options)
             .then(res => {
+                setError(null)
                 setResponse({status: res.status, text: res.statusText})
                 return res.json()
             })

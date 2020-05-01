@@ -1,11 +1,12 @@
-.table {
+.comm-table {
     margin-top: 40px;
     table {
         border-collapse: collapse;
         table-layout:fixed;
         margin: 0 auto;
         border-spacing: 0;
-        width: 80%;
+        width: 100%;
+        max-width: 900px;
     } 
     tr:hover, tr:nth-child(even):hover {
         cursor: pointer;
@@ -25,10 +26,9 @@
     button {
         margin-left: 5px;
         margin-right: 5px;
-        border: 1px solid #051825;
-        border-radius: 3px;
-        color: #051825;
-        background-color: #f8f8ff;
+        background-color: #1B315B;
+        border: none;
+        color: #f8f8f8;
     }
 
     .pagenumber {
@@ -38,7 +38,8 @@
     }
 
     select {
-        margin-top: 6px;
+        background-position: calc(100% - 10px) calc(100% - 3.5px);
+        width: 120px;
     }
 
     margin-top: 60px !important;
@@ -47,7 +48,7 @@
 }
 
 .dark {
-    .table table {
+    .comm-table table {
         color: #f8f8ff;
         border-top: 2px solid #1B315B;
         border-bottom: 1px solid #051825;
@@ -73,7 +74,7 @@
 
 
 .light {
-    .table table {
+    .comm-table table {
         color: #051825;
         border-top: 2px solid #9b9b9b;
         border-bottom: 1px solid #9b9b9b;
@@ -97,14 +98,14 @@
     }
 }
 
-@media only screen and (max-width: 970px) {
-    .table table {
-        width: 100% !important;
+@media only screen and (max-width: 1024px) {
+    .comm-table table {
+        width: 100%;
     }
 }
 
 @media only screen and (max-width: 400px) {
-    .table table {
+    .comm-table table {
         th, td {
             font-size: 15px !important;
         }
@@ -112,7 +113,7 @@
 }
 
 @media only screen and (max-width: 330px) {
-    .table table {
+    .comm-table table {
         th, td {
             font-size: 12px !important;
         }
