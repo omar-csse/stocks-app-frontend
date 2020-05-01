@@ -30,18 +30,24 @@ const Table = ({ columns, data }) => {
         </table>
 
         <div className="pagination">
-            <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}> {'<<'} </button>
-            <button onClick={() => previousPage()} disabled={!canPreviousPage}> {'<'} </button>
-            <button onClick={() => nextPage()} disabled={!canNextPage}> {'>'} </button>
-            <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}> {'>>'} </button>
-            <span className="pagenumber"> Page <strong> {pageIndex + 1} of {pageOptions.length} </strong></span>
-            <select className="comm-select" value={pageSize} onChange={e => {setPageSize(Number(e.target.value))}} >
-            {[25, 50].map(pageSize => (
-                <option key={pageSize} value={pageSize}> 
-                    Show {pageSize}
-                </option>
-            ))}
-            </select>
+            <div className="pagination-item pagination-buttons">
+                <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}> {'<<'} </button>
+                <button onClick={() => previousPage()} disabled={!canPreviousPage}> {'<'} </button>
+                <button onClick={() => nextPage()} disabled={!canNextPage}> {'>'} </button>
+                <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}> {'>>'} </button>
+            </div>
+            <div className="pagination-item pagination-number">
+                <span className="pagenumber"> Page <strong> {pageIndex + 1} of {pageOptions.length} </strong></span>
+            </div>
+            <div className="pagination-item pagination-select">
+                <select className="comm-select" value={pageSize} onChange={e => {setPageSize(Number(e.target.value))}} >
+                    {[25, 50].map(pageSize => (
+                        <option key={pageSize} value={pageSize}> 
+                            Show {pageSize}
+                        </option>
+                    ))}
+                </select>
+            </div>
       </div>
     </div>
   )

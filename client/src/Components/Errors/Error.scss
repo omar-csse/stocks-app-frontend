@@ -1,0 +1,27 @@
+@import "../../index.scss";
+
+
+.error-box {
+    height: 300px;
+}
+
+.error-message  {
+    max-width: 900px;
+    margin: 80px auto;
+    border-radius: 5px;
+    padding: 25px 0px 25px 0px;
+    margin-bottom: 100px !important;
+}
+
+.light {
+    .error-message  {
+        border: 1px solid $color !important;
+    }
+}
+
+.dark {
+    .error-message  {
+        border: none;
+        background-color: #324264 !important;
+    }
+}

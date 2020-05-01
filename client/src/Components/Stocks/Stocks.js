@@ -3,17 +3,15 @@ import './Stocks.scss'
 import useFetch from '../../hooks/useFetch'
 import tableHeader from './Header'
 import Table from '../Table/Table'
-import Error from '../Error/Error'
+import Error from '../Errors/Error'
 import Loading from '../Loading/Loading'
 
 
 const Stocks = ({ query }) => {
 
-    const options = useMemo(() => ({
-        method: 'GET',
-    }), []);
+    const options = useMemo(() => ({method: 'GET'}), []);
 
-    const { data, error, res } = useFetch(`http://131.181.190.87:3000/stocks/symbols${query}`, options)
+    const { data, error, res } = useFetch(`http://131.181.190.87:3000/stocks/symbols${query}`, options, query)
 
     const columns = useMemo(() => tableHeader, [])
     const memData = useMemo(() => data, [data])
