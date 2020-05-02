@@ -9,7 +9,7 @@ export const validate = values => {
         errors.email = 'Please, enter a valid email';
     }
 	if (!passwordRegExp.test(values.password)) {
-		errors.password = 'password must contain (A,a,digit, special char) and be > 8';
+		errors.password = 'password must contain (letters, numbers) and be > 8';
 	}
 
 	return errors;

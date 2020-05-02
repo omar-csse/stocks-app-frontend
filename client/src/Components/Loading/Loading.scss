@@ -3,14 +3,11 @@
 
 .loading {
     margin: 0 auto;
-    margin-top: 80px;
 }
 
 .spinner {
 
     margin: 0 auto;
-    width: 100px;
-    height: 100px;
   
     border: 5px solid $color;
     border-radius: 50%;
@@ -23,6 +20,18 @@
     animation-duration: 2s;
     animation-timing-function: linear;
 
+}
+
+.spin-sm {
+    width: 30px;
+    height: 30px;
+    margin-top: 30px;
+}
+
+.spin-lg {
+    width: 100px;
+    height: 100px;
+    margin-top: 80px;
 }
 
 .dark {

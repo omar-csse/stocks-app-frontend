@@ -19,7 +19,7 @@ const Stocks = ({ query }) => {
     if (error) return <Error error={error} res={res} />
     if (data) return data.error ? <Error error={data} res={res} /> : <Table columns={columns} data={memData} />
 
-    return <Loading />
+    return <Loading classes="spin-lg" />
 }
 
 export default Stocks;

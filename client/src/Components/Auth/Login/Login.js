@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { validate } from './validation';
 import { Form, Field } from 'react-final-form'
 
 
 const Login = (props) => {
+
+    const [ submitted, setSubmitted ] = useState(false)
+    const [ data, setData ] = useState({})
+    const [ loading, setLoading ] = useState(false)
+    const [ error, setError ] = useState(null)
 
 	const renderInput = ({input, meta, type, placeholder}) =>
 		<div className="position-relative form-group">
@@ -21,13 +26,15 @@ const Login = (props) => {
 		<div className="login">
 			<Form onSubmit={onSubmit} validate={validate}>
 				{({handleSubmit, submitting}) => <form onSubmit={handleSubmit}>
+                    <div className="text-danger mb-3"> {error ? error : ''} </div>
+                    <div className="text-danger mb-4"> {data.error ? data.message : ''} </div>
 					<Field name="identifier" placeholder="email" type="text" component={renderInput}/>
 					<Field name="password" placeholder="password" type="password" component={renderInput}/>
 					<div className="position-relative form-group text-center mt-5">
 						<button type="submit" disabled={submitting} className="login-btn btn btn-lg w-50">Login</button>
 					</div>
 					<div className="position-relative form-group mt-5 text-center">
-						<label>New to chatty? <Link to="/register">Register here</Link></label>
+						<label>New to stocks app? <Link to="/register">Register here</Link></label>
 					</div>
 				</form>}
 			</Form>

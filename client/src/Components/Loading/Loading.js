@@ -2,11 +2,11 @@ import React from 'react'
 import './Loading.scss'
 
 
-const Loading = (props) => {
+const Loading = ({ classes }) => {
 
     return (
         <div className="loading">
-            <div className="spinner"></div>
+            <div className={`spinner ${classes}`}></div>
         </div>
     )
 }
