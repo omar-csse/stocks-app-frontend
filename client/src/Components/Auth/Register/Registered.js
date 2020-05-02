@@ -20,7 +20,7 @@ const Registered = ({ email }) => {
                 <h3 className="card-header registered-header">Thank you</h3>
                 <div className="card-body registered-body">
                     <h6 className="registered-mail my-3"> Thank you {email} </h6>
-                    <p> Will be directed to main page in <i>10</i> seconds. </p>
+                    <p> Will be directed to main page in <i>5</i> seconds. </p>
                     <p>For authorized access, please <Link to="/login">Login</Link></p>
                 </div>
             </div>

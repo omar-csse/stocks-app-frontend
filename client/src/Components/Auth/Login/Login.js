@@ -16,8 +16,8 @@ const Login = (props) => {
 	const renderInput = ({input, meta, type, placeholder}) =>
 		<div className="position-relative form-group">
 			<input placeholder={placeholder} className={`form-control ${meta.touched && meta.invalid ? 'border-danger' : ''}`} type={type} {...input}/>
-			{ meta.dirty && meta.invalid && <div className="invalid-feedback d-block text-left">{meta.error}</div>}
-			{ !meta.dirty && meta.touched && <div className="invalid-feedback d-block text-left">Cannot be empty</div>}
+			{ meta.dirty && meta.invalid && <div className="invalid-feedback d-block">{meta.error}</div>}
+			{ !meta.dirty && meta.touched && <div className="invalid-feedback d-block">Cannot be empty</div>}
 		</div>
 
 	const onSubmit = (values) => {
@@ -48,11 +48,11 @@ const Login = (props) => {
                     <div className="text-danger mb-4"> {data.error ? data.message : ''} </div>
 					<Field placeholder="email" type="email" name="email" component={renderInput} />
 					<Field placeholder="password" type="password" name="password" component={renderInput} />
-					<div className="position-relative form-group text-center mt-5">
+					<div className="mt-5">
 						<button type="submit" disabled={submitting} className="login-btn">Login</button>
                         { loading ? <Loading classes="spin-sm" /> : ''}
 					</div>
-					<div className="position-relative form-group mt-5 pb-5 text-center">
+					<div className="mt-5 pb-5">
 						<label>New to stocks app? <Link to="/register">Register here</Link></label>
 					</div>
 				</form>}

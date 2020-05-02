@@ -2,7 +2,7 @@
 
 
 .login form, .register form {
-    margin: auto;
+    margin: 0 auto;
     height: 330px;
     min-width: 290px;
     max-width: 400px;
@@ -15,7 +15,6 @@
     color: $background-color;
     text-align: center;
     min-width: 200px;
-    max-width: 200px;
     min-height: 38px;
     border: none;
     border-radius: 3px;
@@ -49,14 +48,12 @@
 .auth input {
     background-color: white;
     color: $background-color;
-    width: 400px;
+    width: 350px;
     height: 40px;
     border-top: none;
     border-left: none;
     border-right: none;
     border-bottom: 2px solid #1B315B;
-    padding-left: 10px;
-    margin-right: 60px;
 }
 
 .auth input::placeholder {
@@ -98,7 +95,8 @@
 }
 
 .invalid-feedback {
-    padding-left: 10px;
+    padding-left: 5px;
+    text-align: left;
 }
 
 .registered-card {
@@ -131,8 +129,21 @@
     }
 }
 
-@media only screen and (max-width: 767px) {
-    .form .right {
-        display: none;
+@media screen and (max-width: 500px) {
+    .auth input {
+        width: 300px;
+    } 
+    .form .login-btn, .form .register-btn {
+        min-width: 160px;
+    } 
+
+    .invalid-feedback {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 374px) {
+    .auth input {
+        width: 250px;
     } 
 }

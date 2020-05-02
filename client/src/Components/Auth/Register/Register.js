@@ -18,8 +18,8 @@ const Register = (props) => {
 	const renderInput = ({input, meta, type, placeholder}) =>
 		<div className="form-group">
 			<input placeholder={placeholder} className={`form-control ${meta.touched && meta.invalid ? 'border-danger' : ''}`} type={type} {...input}/>
-			{ meta.dirty && meta.invalid && <div className="invalid-feedback d-block text-left">{meta.error}</div>}
-			{ !meta.dirty && meta.touched && <div className="invalid-feedback d-block text-left">Cannot be empty</div>}
+			{ meta.dirty && meta.invalid && <div className="invalid-feedback d-block">{meta.error}</div>}
+			{ !meta.dirty && meta.touched && <div className="invalid-feedback d-block">Cannot be empty</div>}
 		</div>
 
     const onSubmit = (values) => {
