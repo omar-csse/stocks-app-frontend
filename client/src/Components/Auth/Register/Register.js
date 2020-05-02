@@ -4,18 +4,16 @@ import { validate } from './validation';
 import { Form, Field } from 'react-final-form'
 import Loading from '../../Loading/Loading'
 import Registered from './Registered'
-import getHeaders from '../../../utils/authHeaders'
-
+import doAuthHeaders from '../authHeaders'
 
 
 const Register = (props) => {
 
-    const [ submitted, setSubmitted ] = useState(false)
     const [ email, setEmail ] = useState('')
     const [ data, setData ] = useState({})
     const [ loading, setLoading ] = useState(false)
     const [ error, setError ] = useState(null)
-    const [response, setResponse] = useState({status: '', text: ''})
+    const [ response, setResponse ] = useState({status: '', text: ''})
 
 	const renderInput = ({input, meta, type, placeholder}) =>
 		<div className="form-group">
@@ -26,11 +24,10 @@ const Register = (props) => {
 
     const onSubmit = (values) => {
 
-        setSubmitted(true)
         setLoading(true)
         setEmail(values.email)
 
-        fetch('http://131.181.190.87:3000/user/register/', getHeaders(values))
+        fetch('http://131.181.190.87:3000/user/register/', doAuthHeaders(values))
             .then(res => {
                 setResponse({status: res.status, text: res.statusText})
                 return res.json()
@@ -38,7 +35,6 @@ const Register = (props) => {
             .then(data => setData(data))
             .catch(err => setError(err))
             .then(setLoading(false))
-            .then(setSubmitted(false))
     }
 
     if (response.status === 201) return <Registered email={email} />
@@ -49,11 +45,11 @@ const Register = (props) => {
 				{({handleSubmit, submitting}) => <form onSubmit={handleSubmit}>
                     <div className="text-danger mb-3"> {error ? error : ''} </div>
                     <div className="text-danger mb-4"> {data.error ? data.message : ''} </div>
-					<Field placeholder="email" type="email" name="email" component={renderInput}/>
-					<Field placeholder="password" type="password" name="password" component={renderInput}/>
+					<Field placeholder="email" type="email" name="email" component={renderInput} />
+					<Field placeholder="password" type="password" name="password" component={renderInput} />
 					<div className="position-relative form-group mt-5">
-						<button type="submit" disabled={submitting} className="btn register-btn btn-lg w-50">Register</button>
-                        { submitted || loading ? <Loading classes="spin-sm" /> : ''}
+						<button type="submit" disabled={submitting} className="register-btn">Register</button>
+                        { loading ? <Loading classes="spin-sm" /> : ''}
 					</div>
 					<div className="position-relative form-group mt-5 pb-5 text-center">
 						<label>Already a member? <Link to="/login">Login</Link></label>

@@ -22,7 +22,7 @@
     }
 }
 
-#industry_input {
+#comm_input {
     background-color: white;
     color: $background-color;
     width: 300px;
@@ -35,25 +35,25 @@
     margin-right: 60px;
 }
 
-#industry_input::placeholder {
+#comm_input::placeholder {
     color: #1B315B !important;
 }
 
-#industry_input:focus, .dark #industry_input:focus {
+#comm_input:focus, .dark #comm_input:focus {
     outline: none;
     color: $color;
     border-bottom: 2px solid $color;
 }
 
-#industry_input:focus::placeholder, .dark #industry_input:focus::placeholder {
+#comm_input:focus::placeholder, .dark #comm_input:focus::placeholder {
     color: $color !important; 
 }
 
-#industry_input:focus::-moz-placeholder, .dark #industry_input:focus::-moz-placeholder {
+#comm_input:focus::-moz-placeholder, .dark #comm_input:focus::-moz-placeholder {
     color: $color !important; 
 }
 
-#industry_input:focus::-webkit-input-placeholder, .dark #industry_input:focus::-webkit-input-placeholder{
+#comm_input:focus::-webkit-input-placeholder, .dark #comm_input:focus::-webkit-input-placeholder{
     color: $color !important; 
 }
 
@@ -69,13 +69,13 @@
 }
 
 .dark {
-    #industry_input {
+    #comm_input {
         color: $color;
         background-color: $background-color;
         border-bottom: 2px solid #f8f8f8;
     }
     
-    #industry_input::placeholder {
+    #comm_input::placeholder {
         color: #f8f8f8 !important;
     }
 }
@@ -85,7 +85,7 @@
         margin-top: 20px;
     } 
 
-    #industry_input {
+    #comm_input {
         margin-right: 0px;
     }
 }

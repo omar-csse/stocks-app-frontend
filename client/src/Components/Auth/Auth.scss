@@ -12,12 +12,13 @@
 
 .form .login-btn, .form .register-btn {
     background: $color;
-    font-size: 25px;
     color: $background-color;
     text-align: center;
     min-width: 200px;
     max-width: 200px;
-    border-radius: .3em;
+    min-height: 38px;
+    border: none;
+    border-radius: 3px;
 }
 
 .form .login-btn:hover, .form .register-btn:hover, .form .login-btn:focus, .form .register-btn:focus {
@@ -38,17 +39,58 @@
     color: $color;
 }
 
-::placeholder, ::-webkit-input-placeholder {
-    color: $color !important;
+.auth input {
+    all: initial;
+    * {
+        all: unset;
+    }
 }
 
-.login input, .register input {
-    border: 2px solid;
-    border-color: $color;
-    font-size: 20px;
+.auth input {
+    background-color: white;
+    color: $background-color;
+    width: 400px;
     height: 40px;
-    margin: 0 auto;
-    margin-bottom: 15px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #1B315B;
+    padding-left: 10px;
+    margin-right: 60px;
+}
+
+.auth input::placeholder {
+    color: #1B315B !important;
+}
+
+.auth input:focus, .dark .auth input:focus {
+    outline: none !important;
+    color: $color !important;
+    border-bottom: 2px solid $color !important;
+}
+
+.auth input:focus::placeholder, .dark .auth input:focus::placeholder {
+    color: $color !important; 
+}
+
+.auth input:focus::-moz-placeholder, .dark .auth input:focus::-moz-placeholder {
+    color: $color !important; 
+}
+
+.auth input:focus::-webkit-input-placeholder, .dark .auth input:focus::-webkit-input-placeholder{
+    color: $color !important; 
+}
+
+.dark {
+    .auth input {
+        color: $color !important;
+        background-color: $background-color !important;
+        border-bottom: 2px solid #f8f8f8;
+    }
+    
+    .auth input::placeholder {
+        color: #f8f8f8 !important;
+    }
 }
 
 .form .right {
@@ -56,7 +98,7 @@
 }
 
 .invalid-feedback {
-    padding-left: 5px;;
+    padding-left: 10px;
 }
 
 .registered-card {

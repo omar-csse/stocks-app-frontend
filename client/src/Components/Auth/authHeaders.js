@@ -1,6 +1,6 @@
 
 
-const getHeaders = (data) => {
+const doAuthHeaders = (data) => {
     const options = {
         method: 'POST', 
         headers: {accept: "application/json", "Content-Type": "application/json"},
@@ -10,4 +10,4 @@ const getHeaders = (data) => {
     return options;
 }
 
-export default getHeaders;
+export default doAuthHeaders;

@@ -24,7 +24,7 @@ const Home = (props) => {
             <Logo class="logo text-center" height="300" width="300"/>
             <div className="stocks"> 
                 <form className="filter-form-home form-inline">
-                    <input placeholder="industry" id="industry_input" onChange={handleInput}/>
+                    <input placeholder="industry" id="industry_input" className="comm-input" onChange={handleInput}/>
                     <select className="comm-select" id="industry_select" onChange={handleInput} >
                         <option>all industries</option>
                         <option>Health Care</option>

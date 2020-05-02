@@ -5,9 +5,9 @@ import { passwordRegExp } from '../Regexp'
 export const validate = values => {
 	const errors = {}
 
-	if (!emailValidator.validate(values.identifier)) {
-		if (values.identifier === undefined) {
-			errors.identifier = 'Enter a valid username or email';
+	if (!emailValidator.validate(values.email)) {
+		if (values.email === undefined) {
+			errors.email = 'Enter a valid username or email';
 		}
 	}
 
