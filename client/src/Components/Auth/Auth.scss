@@ -59,6 +59,36 @@
     padding-left: 5px;;
 }
 
+.registered-card {
+    max-width: 900px;
+    height: 300px;
+    margin: 0 auto;
+
+    a {
+        color: $color;
+        text-decoration: underline;
+    }
+}
+
+.registered-mail {
+    color: $color;
+}
+
+.light .registered-body {
+    p {
+        color: #324264;
+    }
+}
+
+.dark {
+    .registered-header {
+        background-color: #263450 !important;
+    }
+    .registered-body {
+        background-color: #324264 !important;
+    }
+}
+
 @media only screen and (max-width: 767px) {
     .form .right {
         display: none;

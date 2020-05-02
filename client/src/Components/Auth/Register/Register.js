@@ -3,15 +3,19 @@ import { Link } from 'react-router-dom';
 import { validate } from './validation';
 import { Form, Field } from 'react-final-form'
 import Loading from '../../Loading/Loading'
+import Registered from './Registered'
 import getHeaders from '../../../utils/authHeaders'
+
 
 
 const Register = (props) => {
 
     const [ submitted, setSubmitted ] = useState(false)
+    const [ email, setEmail ] = useState('')
     const [ data, setData ] = useState({})
     const [ loading, setLoading ] = useState(false)
     const [ error, setError ] = useState(null)
+    const [response, setResponse] = useState({status: '', text: ''})
 
 	const renderInput = ({input, meta, type, placeholder}) =>
 		<div className="form-group">
@@ -21,17 +25,24 @@ const Register = (props) => {
 		</div>
 
     const onSubmit = (values) => {
+
         setSubmitted(true)
         setLoading(true)
+        setEmail(values.email)
 
         fetch('http://131.181.190.87:3000/user/register/', getHeaders(values))
-            .then(res => res.json())
+            .then(res => {
+                setResponse({status: res.status, text: res.statusText})
+                return res.json()
+            })
             .then(data => setData(data))
             .catch(err => setError(err))
             .then(setLoading(false))
             .then(setSubmitted(false))
     }
-    
+
+    if (response.status === 201) return <Registered email={email} />
+
 	return (
 		<div className="register">
 			<Form onSubmit={onSubmit} validate={validate}>
