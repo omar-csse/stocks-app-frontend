@@ -10,7 +10,7 @@ import useAuth from '../../../hooks/useAuth'
 const Login = (props) => {
 
     const { status, isLoading, error, run } = useAsync()
-    const { login } = useAuth()
+    const { login, loggedIn } = useAuth()
 
 	const renderInput = ({input, meta, type, placeholder}) =>
 		<div className="position-relative form-group form-input">
@@ -21,7 +21,7 @@ const Login = (props) => {
 
 	const onSubmit = (values) => run(login(values))
 
-    if (status === 'resolved') return <Redirect to="/" />
+    if (status === 'resolved' || loggedIn) return <Redirect to="/" />
     
 	return (
 		<div className="login">

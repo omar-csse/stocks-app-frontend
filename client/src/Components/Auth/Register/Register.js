@@ -11,7 +11,7 @@ import useAuth from '../../../hooks/useAuth'
 const Register = (props) => {
 
     const { status, isLoading, error, run } = useAsync()
-    const { register, isLoggedIn } = useAuth()
+    const { register, loggedIn } = useAuth()
     const [ email, setEmail ] = useState('')
 
 	const renderInput = ({input, meta, type, placeholder}) =>
@@ -28,7 +28,7 @@ const Register = (props) => {
 
     if (status === 'resolved') return <Registered email={email} />
 
-    if (isLoggedIn()) return <Redirect to="/" />
+    if (loggedIn) return <Redirect to="/" />
 
 	return (
 		<div className="register">
