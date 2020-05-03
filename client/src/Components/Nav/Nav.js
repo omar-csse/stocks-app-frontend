@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
 import Logo from '../Logo/Logo';
 import './Nav.scss';
 import btn from './btn.svg'
+import useAuth from '../../hooks/useAuth'
+import AuthItems from './AuthItems'
+import UnAuthItems from './UnAuthItems'
 
 
 const Nav = (props) => {
+
+    const { loggedIn } = useAuth()
 
     const getBrowserMode = () => {
         if (!window.matchMedia) return;
@@ -52,17 +56,7 @@ const Nav = (props) => {
                 </button>
 
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav ml-auto">
-                        <li className="nav-item">
-                            <NavLink to="/" className="nav-item nav-link">Home</NavLink>
-                        </li>
-                        <li className="nav-item">
-                            <NavLink to="/login" className="nav-item nav-link">Login</NavLink>
-                        </li>
-                        <li className="nav-item">
-                            <NavLink to="/register" className="nav-item nav-link">Register</NavLink>
-                        </li>
-                    </ul>
+                    { loggedIn ? <AuthItems /> :  <UnAuthItems /> }
                 </div>
             </div>
         </nav>

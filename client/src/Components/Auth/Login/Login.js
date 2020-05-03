@@ -1,56 +1,38 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { validate } from './validation';
 import { Form, Field } from 'react-final-form'
 import Loading from '../../Loading/Loading'
-import doAuthHeaders from '../authHeaders'
+import useAsync from '../../../hooks/useAsync'
+import useAuth from '../../../hooks/useAuth'
 
 
 const Login = (props) => {
 
-    const [ data, setData ] = useState({})
-    const [ loading, setLoading ] = useState(false)
-    const [ error, setError ] = useState(null)
-    const [ response, setResponse ] = useState({status: '', text: ''})
+    const { status, isLoading, error, run } = useAsync()
+    const { login } = useAuth()
 
 	const renderInput = ({input, meta, type, placeholder}) =>
-		<div className="position-relative form-group">
+		<div className="position-relative form-group form-input">
 			<input placeholder={placeholder} className={`form-control ${meta.touched && meta.invalid ? 'border-danger' : ''}`} type={type} {...input}/>
 			{ meta.dirty && meta.invalid && <div className="invalid-feedback d-block">{meta.error}</div>}
 			{ !meta.dirty && meta.touched && <div className="invalid-feedback d-block">Cannot be empty</div>}
 		</div>
 
-	const onSubmit = (values) => {
-        
-        setLoading(true)
-        console.log(values)
+	const onSubmit = (values) => run(login(values))
 
-        fetch('http://131.181.190.87:3000/user/login/', doAuthHeaders(values))
-            .then(res => {
-                setResponse({status: res.status, text: res.statusText})
-                return res.json()
-            })
-            .then(data => {
-                console.log(data)
-                data.token ? localStorage.setItem("_tkn", data.token) : setData(data)
-            })
-            .catch(err => setError(err))
-            .then(setLoading(false))
-    }
+    if (status === 'resolved') return <Redirect to="/" />
     
-    if (response.status === 200) return <Redirect to="/" />
-
 	return (
 		<div className="login">
 			<Form onSubmit={onSubmit} validate={validate}>
 				{({handleSubmit, submitting}) => <form onSubmit={handleSubmit}>
-                    <div className="text-danger mb-3"> {error ? error : ''} </div>
-                    <div className="text-danger mb-4"> {data.error ? data.message : ''} </div>
+                    <div className="text-danger error-msg"> {error ? error.message : null} </div>
 					<Field placeholder="email" type="email" name="email" component={renderInput} />
 					<Field placeholder="password" type="password" name="password" component={renderInput} />
-					<div className="mt-5">
+					<div className="loading-btn">
 						<button type="submit" disabled={submitting} className="login-btn">Login</button>
-                        { loading ? <Loading classes="spin-sm" /> : ''}
+                        { isLoading ? <Loading classes="spin-sm" /> : null }
 					</div>
 					<div className="mt-5 pb-5">
 						<label>New to stocks app? <Link to="/register">Register here</Link></label>

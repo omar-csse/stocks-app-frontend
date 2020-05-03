@@ -3,7 +3,7 @@ import './Stocks.scss'
 import useFetch from '../../hooks/useFetch'
 import tableHeader from './Header'
 import Table from '../Table/Table'
-import Error from '../Errors/Error'
+import Error from '../Error/Error'
 import Loading from '../Loading/Loading'
 
 
