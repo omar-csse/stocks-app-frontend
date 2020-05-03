@@ -1,4 +1,4 @@
-import { logout_noreload } from './auth.client'
+import { logout } from './auth.client'
 
 
 const client = async (endpoint, body) => {
@@ -17,7 +17,7 @@ const client = async (endpoint, body) => {
   
     const res = await fetch(`http://131.181.190.87:3000/${endpoint}`, config)
 
-    if (res.status === 401) logout_noreload()
+    if (res.status === 401) logout()
 
     const data = await res.json()
 

@@ -4,7 +4,7 @@ import client from './api.client'
 
 const setToken = (data) => {
     localStorage.setItem("_tkn", data.token)
-    return true
+    return {islogged: true}
 }
 
 const getToken = () => {
@@ -30,13 +30,7 @@ const isLoggedIn = () => {
 
 const logout = () => {
     localStorage.removeItem("_tkn")
-    window.location.reload();
-    return Promise.resolve()
-}
-
-const logout_noreload = () => {
-    localStorage.removeItem("_tkn")
-    return Promise.resolve()
+    return Promise.resolve({islogged: false})
 }
 
 const login = (values) => {
@@ -48,4 +42,4 @@ const register = (values) => {
 }
 
 
-export { login, register, getToken, isLoggedIn, logout_noreload, logout }
+export { login, register, getToken, isLoggedIn, logout }
