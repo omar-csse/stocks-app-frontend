@@ -17,7 +17,7 @@ const Stocks = ({ query }) => {
     const memData = useMemo(() => data, [data])
 
     if (error) return <Error error={error} res={res} />
-    if (data) return <Table classes="stocks" columns={columns} data={memData} />
+    if (data) return <Table classes="stocks-table" columns={columns} data={memData} />
 
     return <Loading classes="spin-lg" />
 }
