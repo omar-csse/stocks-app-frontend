@@ -87,7 +87,14 @@ li:hover {
 
 .toggle > span {
     padding-left: 5px;
-    padding-right: 3px;
+    padding-right: 6px;
+}
+
+@media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) { 
+    .selector:not(*:root), .toggle > span {
+        padding-right: 1px !important;
+        padding-bottom: 1px;
+    }
 }
 
 .toggle {
