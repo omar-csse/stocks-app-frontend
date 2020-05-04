@@ -75,6 +75,24 @@
     .comm-input::placeholder {
         color: #f8f8f8 !important;
     }
+
+    input:-webkit-autofill, input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus, input:-webkit-autofill:active  {
+        box-shadow: 0 0 0 30px $background-color inset !important;
+        -webkit-box-shadow: 0 0 0 30px $background-color inset !important;
+        -webkit-text-fill-color: $color !important;
+        caret-color: $color !important;
+    }
+}
+
+.light {
+    input:-webkit-autofill, input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus, input:-webkit-autofill:active  {
+        box-shadow: 0 0 0 30px white inset !important;
+        -webkit-box-shadow: 0 0 0 30px white inset !important;
+        -webkit-text-fill-color: $background-color !important;
+        caret-color: $background-color !important;
+    }
 }
 
 @media only screen and (max-width: 767px) {
