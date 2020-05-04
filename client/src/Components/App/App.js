@@ -1,9 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Nav from '../Nav/Nav';
-import Home from '../Home/Home';
-import Auth from '../Auth/Auth';
-import './App.scss';
+import './app.scss';
+import Nav from '../nav/nav';
+import Home from '../home/home';
+import Footer from '../footer/footer';
+import Auth from '../auth/auth';
+import Stock from '../stock/stock';
 import { AuthProvider } from '../../context/auth.context'
 
 
@@ -16,12 +18,14 @@ const App = () => {
                     <Nav />
                     <div className="container">
                         <Switch>
-                            <Route exact path="/" component={Home}/>	
-                            <Route path="/register" render={() => <Auth path="/signup"/>}/>
-                            <Route path="/login" render={() => <Auth path="/login"/>}/>
+                            <Route exact path="/" component={Home} />
+                            <Route exact path="/stock/:symbol" component={Stock} />
+                            <Route exact path="/register" render={() => <Auth path="/register"/>} />
+                            <Route exact path="/login" render={() => <Auth path="/login"/>} />
                         </Switch>
                     </div>
                 </AuthProvider>
+                <Footer />
             </div>
         </Router>
 	);

@@ -1,2 +1,0 @@
-export const usernameRegExp = RegExp(/^(?=.*[A-Za-z])(?!([-]|[.]|[_]))(?!.*[_.-]{2,})[A-Za-z0-9_.-]{3,30}\b(?!([-]|[.]|[_]))$/);
-export const passwordRegExp = RegExp(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/);

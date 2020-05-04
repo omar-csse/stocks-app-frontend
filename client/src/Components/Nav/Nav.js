@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import Logo from '../Logo/Logo';
-import './Nav.scss';
+import Logo from '../logo/logo';
+import './nav.scss';
 import btn from './btn.svg'
 import useAuth from '../../hooks/useAuth'
-import AuthItems from './AuthItems'
-import UnAuthItems from './UnAuthItems'
+import NavAuthItems from './navAuthItems'
+import NavUnAuthItems from './navUnAuthItems'
 
 
 const Nav = (props) => {
@@ -56,7 +56,7 @@ const Nav = (props) => {
                 </button>
 
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    { loggedIn ? <AuthItems /> :  <UnAuthItems /> }
+                    { loggedIn ? <NavAuthItems /> :  <NavUnAuthItems /> }
                 </div>
             </div>
         </nav>

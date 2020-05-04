@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from "./Logo.svg"
-import "./Logo.scss"
+import logo from "./logo.svg"
+import "./logo.scss"
 
 
 const Logo = (props) => {

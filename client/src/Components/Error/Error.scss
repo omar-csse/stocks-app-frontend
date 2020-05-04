@@ -2,12 +2,19 @@
 
 
 .error-box {
+    margin-top: 170px;
     height: 300px;
+}
+
+.stock-error {
+    max-width: 700px !important;
 }
 
 .error-message {
     h5 {
         margin-top: 30px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 }
 
@@ -17,6 +24,7 @@
     border-radius: 5px;
     padding: 25px 0px 25px 0px;
     margin-bottom: 100px !important;
+    text-align: center;
 }
 
 .light {

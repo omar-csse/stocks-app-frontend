@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import Logo from '../Logo/Logo';
-import './Home.scss';
-import Stocks from '../Stocks/Stocks'
+import Logo from '../logo/logo';
+import './home.scss';
+import Stocks from '../stocks/stocks'
 
 
 const Home = (props) => {
@@ -14,9 +14,14 @@ const Home = (props) => {
 
     const handleInput = (e) => {
         const val = e.target.value
+        val === '' ? setIndustry('') : setIndustry("?industry=" + val)
+    }
+
+    const handleSelect = (e) => {
+        const val = e.target.value
         const index = e.target.selectedIndex
-        if (index === 0 || val === '') setIndustry('')
-        else setIndustry("?industry=" + val)
+        document.getElementById("industry_input").value = ''
+        index === 0 ? setIndustry('') : setIndustry("?industry=" + val)
     }
 
 	return (
@@ -25,7 +30,7 @@ const Home = (props) => {
             <div className="stocks"> 
                 <form className="filter-form-home form-inline">
                     <input placeholder="industry" id="industry_input" className="comm-input" onChange={handleInput}/>
-                    <select className="comm-select" id="industry_select" onChange={handleInput} >
+                    <select className="comm-select" id="industry_select" onChange={handleSelect} >
                         <option>all industries</option>
                         <option>Health Care</option>
                         <option>Financials</option>
@@ -41,7 +46,6 @@ const Home = (props) => {
                     </select>
                 </form>
                 <Stocks query={industry} /> 
-                <div className="footer-space"></div>
             </div>
 		</div>
 	);

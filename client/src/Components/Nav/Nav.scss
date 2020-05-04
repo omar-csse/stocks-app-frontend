@@ -3,9 +3,9 @@
 
 #mainnav {
     background-color: $background-color;
-    -webkit-border-radius: 0px 0px 5px 5px;
-    -moz-border-radius: 0px 0px 5px 5px;
-    border-radius: 0px 0px 5px 5px;
+    -webkit-border-radius: 0px 0px 2px 2px;
+    -moz-border-radius: 0px 0px 2px 2px;
+    border-radius: 0px 0px 2px 2px;
 
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -21,6 +21,16 @@
     }
     i:hover {
         color: $color-hover;
+    }
+
+    .nv-active {
+        color: $color-hover;
+    }
+}
+
+.light {
+    #mainnav {
+        border-bottom: 4px solid $color;
     }
 }
 

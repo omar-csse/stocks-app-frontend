@@ -1,8 +1,8 @@
 import React, { createContext, useMemo, useCallback } from 'react'
 import useAsync from '../hooks/useAsync'
 import * as auth_client from '../utlis/auth.client'
-import Loading from '../components/Loading/Loading'
-import Error from '../components/Error/Error'
+import Loading from '../components/loading/loading'
+import Error from '../components/error/error'
 
 
 const AuthContext = createContext()
