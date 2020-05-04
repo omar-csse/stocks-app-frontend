@@ -12,15 +12,24 @@ const useFetch = (url, options, deps) => {
 
         setLoading(true)
 
-        fetch(url, options)
-            .then(res => {
-                setError(null)
+        const doFetch = async () => {
+            try {
+                const res = await fetch(url, options);
+                const json = await res.json();
                 setResponse({status: res.status, text: res.statusText})
-                return res.json()
-            })
-            .then(data => setData(data))
-            .then(setLoading(false))
-            .catch(err => setError(err))
+                
+                if (res.ok) {
+                    setData(json) 
+                    setError(null)
+                }
+                else setError(json);
+            } catch (e) {
+                setError(e);
+            }
+        };
+        
+        doFetch();
+        setLoading(false)
 
     }, [url, options, deps])
 

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Logo from '../Logo/Logo';
 import './Home.scss';
-
 import Stocks from '../Stocks/Stocks'
+
 
 const Home = (props) => {
 
