@@ -17,7 +17,6 @@ const useFetch = (url, options, deps) => {
                 const res = await fetch(url, options);
                 const json = await res.json();
                 setResponse({status: res.status, text: res.statusText})
-                
                 if (res.ok) {
                     setData(json) 
                     setError(null)
@@ -25,11 +24,12 @@ const useFetch = (url, options, deps) => {
                 else setError(json);
             } catch (e) {
                 setError(e);
+            } finally {
+                setLoading(false);
             }
         };
         
         doFetch();
-        setLoading(false)
 
     }, [url, options, deps])
 
