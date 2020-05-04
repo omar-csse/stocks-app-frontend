@@ -9,7 +9,7 @@ const AuthContext = createContext()
 
 const AuthProvider = (props) => {
 
-    const { data, status, error, isLoading, isIdle, isError, isSuccess, setData } = useAsync()
+    const { data, error, isLoading, isIdle, isError, isSuccess, setData } = useAsync()
 
     const login = useCallback(form => auth_client.login(form).then(islogged => setData(islogged)), [setData])
     const register = useCallback(form => auth_client.register(form), [])
@@ -18,12 +18,9 @@ const AuthProvider = (props) => {
     const loggedIn = data ? data.islogged : auth_client.isLoggedIn();
     const value = useMemo(() => ({ login, logout, register, loggedIn}), [ login, logout, register, loggedIn])
     
-    console.log(`isError: ${isError}`)
     if (isLoading) return <Loading classes="spin-lg" />
-    if (isError) return console.log(`error from context: ${error}`)
-    if (isIdle || isSuccess) return <AuthContext.Provider value={value} {...props} />
-  
-    throw new Error(`Unhandled status: ${status}`)
+    if (isError) return <Error error={error} res={{status: 500, message: 'SERVER ERROR'}} />
+    if (isIdle || isSuccess) return <AuthContext.Provider value={value} {...props} />  
 }
   
 
