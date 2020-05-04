@@ -30,16 +30,12 @@
     transform: scale(1.03);
 }
 
-.row label a {
-    text-decoration: underline;
-}
-
-.row label a:hover,  .row label a:hover {
-    color: $color-hover;
-}
-
-.row label, .row label a {
+.auth label, .auth a {
     color: $color;
+}
+
+.auth a:hover {
+    color: $color-hover;
 }
 
 .loading-btn {
