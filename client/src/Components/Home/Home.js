@@ -41,6 +41,7 @@ const Home = (props) => {
                     </select>
                 </form>
                 <Stocks query={industry} /> 
+                <div className="footer-space"></div>
             </div>
 		</div>
 	);
