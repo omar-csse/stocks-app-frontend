@@ -8,25 +8,28 @@
     }
 }
 
-.search-btn {
+.search-btn{
     min-width: 120px;
 }
 
 .unauth-form {
-    button:hover {
-        color: white;
+    .search-btn {
+        color: $table-hover;
+    }
+    .search-btn:hover {
+        color: white !important;
         transform: none;
     }
 }
 
 .dark .unauth-form {
-    button:hover {
+    .search-btn:hover {
         background-color: #660000;
     }
 }
 
 .light .unauth-form {
-    button:hover {
+    .search-btn:hover {
         background-color: #ff6666;
     }
 }
