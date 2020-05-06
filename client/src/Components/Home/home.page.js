@@ -4,12 +4,13 @@ import './home.scss';
 import Stocks from '../stocks/stocks'
 
 
-const Home = (props) => {
+const HomePage = (props) => {
 
     const [industry, setIndustry] = useState('')
 
     useEffect(() => {
         document.getElementById("navbarSupportedContent").classList.remove("show");
+        localStorage.removeItem('stockpath')
     }, []);
 
     const handleInput = (e) => {
@@ -28,7 +29,7 @@ const Home = (props) => {
 		<div className="home">
             <Logo class="logo text-center" height="300" width="300"/>
             <div className="stocks"> 
-                <form className="filter-form-home form-inline">
+                <form>
                     <input placeholder="industry" id="industry_input" className="comm-input" onChange={handleInput}/>
                     <select className="comm-select" id="industry_select" onChange={handleSelect} >
                         <option>all industries</option>
@@ -51,4 +52,4 @@ const Home = (props) => {
 	);
 }
 
-export default React.memo(Home);
+export default React.memo(HomePage);

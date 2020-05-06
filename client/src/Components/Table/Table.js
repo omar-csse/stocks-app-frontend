@@ -4,18 +4,21 @@ import { useTable, usePagination } from 'react-table'
 import './table.scss';
 
 
-const Table = ({ classes, clickable, columns, data }) => {
+const Table = ({ classes, clickable, columns, data, pgsize, id }) => {
+
 
     let history = useHistory();
 
     const { headerGroups, prepareRow, page, canPreviousPage, canNextPage, pageOptions,
         pageCount, gotoPage, nextPage, previousPage, state: { pageIndex },
-    } = useTable( { columns,data, initialState: { pageIndex: 0, pageSize: 25 }, }, usePagination )
+    } = useTable( { columns,data, initialState: { pageIndex: 0, pageSize: pgsize }, }, usePagination )
 
-    const handleRow = (symbol) => history.push(`stock/${symbol}`)        
+    const handleRow = (symbol, name) => {
+        history.push({pathname: `stock/${symbol}`, state: { stockname: name }})        
+    }
 
     return (
-        <div className={`top-div-table ${classes}`}>
+        <div id={id} className={`top-div-table ${classes}`}>
             <div className="comm-table">
                 <table>
                     <thead>
@@ -27,7 +30,7 @@ const Table = ({ classes, clickable, columns, data }) => {
                         {page.map((row, i) => {
                             prepareRow(row)
                             return (
-                                <tr key={`${row.original.symbol}`} onClick={clickable ? () => handleRow(row.original.symbol) : null}>
+                                <tr key={`${row.original.symbol || row.id}`} onClick={clickable ? () => handleRow(row.original.symbol, row.original.name) : null}>
                                     {row.cells.map(cell => <td {...cell.getCellProps()}>{cell.render('Cell')}</td>)}
                                 </tr>
                             )

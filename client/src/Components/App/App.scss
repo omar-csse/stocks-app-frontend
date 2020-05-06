@@ -13,7 +13,7 @@
 
 .light {
     p, h1, h2, h3, h4, h5, b, span {
-        color: $color;
+        color: $light-color;
     }
 }
 
@@ -21,78 +21,143 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='white'><polygon points='0,0 100,0 50,50'/></svg>") no-repeat;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='051825'><polygon points='0,0 100,0 50,50'/></svg>") no-repeat;
     background-size: 12px;
     background-repeat: no-repeat;
-    background-color: #1B315B;
+    background-color: $btn-dark-cyan-bg;
     border: none;
-    color: #f8f8f8;
+    color: $btn-dark-cyan-text;
     padding-left: 10px;
 }
 
+.comm-select:hover {
+    cursor: pointer;
+}
+
+.dark {
+    .comm-select:hover {
+        filter: brightness(140%);
+    }
+}
+
+.light {
+    .comm-select {
+        background-color: $btn-light-cyan-bg;
+        color: $btn-light-cyan-text;
+        font-size: 17.5px;
+    }
+    .comm-select:hover {
+        filter: brightness(115%);
+    }
+}
+
 .comm-input {
-    background-color: white;
-    color: $background-color;
     width: 300px;
     height: 40px;
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: 2px solid #1B315B;
     padding-left: 10px;
     margin-right: 60px;
 }
 
-.comm-input::placeholder {
-    color: #1B315B !important;
-}
-
-.comm-input:focus, .dark .comm-input:focus {
-    outline: none !important;
-    color: $color !important;
-    border-bottom: 2px solid $color !important;
-}
-
-.comm-input:focus::placeholder, .dark .comm-input:focus::placeholder {
+.dark .comm-input:focus::placeholder {
     color: $color !important; 
 }
 
-.comm-input:focus::-moz-placeholder, .dark .comm-input:focus::-moz-placeholder {
+.dark .comm-input:focus::-moz-placeholder {
     color: $color !important; 
 }
 
-.comm-input:focus::-webkit-input-placeholder, .dark .comm-input:focus::-webkit-input-placeholder{
+.dark .comm-input:focus::-webkit-input-placeholder{
     color: $color !important; 
+}
+
+.light .comm-input:focus::placeholder {
+    color: $light-color !important; 
+}
+
+.light .comm-input:focus::-moz-placeholder {
+    color: $light-color !important; 
+}
+
+.light .comm-input:focus::-webkit-input-placeholder{
+    color: $light-color !important; 
 }
 
 .dark {
     .comm-input {
-        color: $color !important;
-        background-color: $background-color !important;
-        border-bottom: 2px solid #f8f8f8 !important;
+        color: $color;
+        background-color: $background-color;
+        border-bottom: 2px solid white;
     }
-    
+
     .comm-input::placeholder {
-        color: #f8f8f8 !important;
+        color: white;
+    }
+
+    .comm-input:focus, .dark .comm-input:focus {
+        outline: none ;
+        color: $color;
+        border-bottom: 2px solid $color;
     }
 
     input:-webkit-autofill, input:-webkit-autofill:hover, 
     input:-webkit-autofill:focus, input:-webkit-autofill:active  {
-        box-shadow: 0 0 0 30px $background-color inset !important;
-        -webkit-box-shadow: 0 0 0 30px $background-color inset !important;
-        -webkit-text-fill-color: $color !important;
-        caret-color: $color !important;
+        box-shadow: 0 0 0 30px $background-color inset;
+        -webkit-box-shadow: 0 0 0 30px $background-color inset;
+        -webkit-text-fill-color: $color;
+        caret-color: $color;
     }
 }
 
 .light {
+    .comm-input {
+        font-size: 17.5px;
+        color: $dark-color;
+        background-color: white;
+        border-bottom: 2.2px solid $dark-color;
+    }
+
+    .comm-input::placeholder {
+        color: $dark-color;
+    }
+
+    .comm-input:focus, .dark .comm-input:focus {
+        outline: none ;
+        color: $light-color;
+        border-bottom: 2px solid $light-color;
+    }
+
     input:-webkit-autofill, input:-webkit-autofill:hover, 
     input:-webkit-autofill:focus, input:-webkit-autofill:active  {
-        box-shadow: 0 0 0 30px white inset !important;
-        -webkit-box-shadow: 0 0 0 30px white inset !important;
-        -webkit-text-fill-color: $background-color !important;
-        caret-color: $background-color !important;
+        box-shadow: 0 0 0 30px white inset;
+        -webkit-box-shadow: 0 0 0 30px white inset;
+        -webkit-text-fill-color: $light-color;
+        caret-color: $light-color;
     }
+}
+
+.comm-btn {
+    text-align: center;
+    min-height: 38px;
+    border: none;
+    border-radius: 3px;
+}
+
+.dark .comm-btn {
+    background-color: $color;
+    color: $secondary-color-table;
+}
+
+.light .comm-btn {
+    background-color: $light-color;
+    color: white;
+}
+
+.comm-btn:hover, .comm-btn:hover {
+    transform: scale(1.02);
+    filter: brightness(125%);
 }
 
 @media only screen and (max-width: 767px) {

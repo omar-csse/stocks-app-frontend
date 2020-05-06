@@ -3,15 +3,15 @@ import { logout } from './auth.client'
 
 const client = async (endpoint, body) => {
 
-    const token = window.localStorage.getItem("_tkn")
+    const token = localStorage.getItem("_tkn")
     const headers = {'content-type': 'application/json'}
 
     if (token) headers.Authorization = `Bearer ${token}`
 
     const config = {
         method: body ? 'POST' : 'GET',
-        headers: {'content-type': 'application/json'}
-    }
+        headers: headers
+    }    
     
     if (body) config.body = JSON.stringify(body)
   
@@ -22,7 +22,7 @@ const client = async (endpoint, body) => {
     const data = await res.json()
 
     if (res.ok) return data
-    else return Promise.reject(data)
+    else return Promise.reject({data, res})
 }
 
 

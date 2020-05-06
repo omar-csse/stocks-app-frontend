@@ -41,5 +41,9 @@ const register = (values) => {
     return client('user/register', values)
 }
 
+const getStock = (query) => {
+    return client(`stocks/authed/${query}`)
+}
 
-export { login, register, getToken, isLoggedIn, logout }
+
+export { login, register, getToken, isLoggedIn, logout, getStock }

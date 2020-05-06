@@ -1,5 +1,142 @@
+@import "../../index.scss";
 
 
 .stock {
-    margin-top: 170px;
+    margin-top: 200px;
+    form {
+        margin-top: 30px;
+    }
+}
+
+.search-btn {
+    min-width: 120px;
+}
+
+.unauth-form {
+    button:hover {
+        color: white;
+        transform: none;
+    }
+}
+
+.dark .unauth-form {
+    button:hover {
+        background-color: #660000;
+    }
+}
+
+.light .unauth-form {
+    button:hover {
+        background-color: #ff6666;
+    }
+}
+
+.form-stock, .auth-message {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.date-btn {
+    background-color: $table-hover;
+    color: #f8f8f8;
+    border: none;
+    padding-left: 10px;
+    border-radius: 3px;
+    height: 38px;
+    max-width: 120px;
+}
+
+#d-btn2 {
+    margin-right: 40px;
+}
+
+.date-btn:hover {
+    cursor: pointer;
+    filter: brightness(250%);
+}
+
+.form-stock {
+    h4 {
+        padding: 7px 7px 0px 7px;
+    }
+}
+
+.auth-message {
+    margin-top: 40px;
+    height: 24px;
+    a {
+        border-left: 8px solid $color;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border-left-color: $color;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding-left: 5px;
+        padding-right: 20px;
+        background-color: $table-hover;
+        text-decoration: none;
+        color: white;
+    }
+
+    a:hover {
+        text-decoration: none;
+        color: $color; 
+        filter: brightness(150%);
+    }
+}
+
+.date-icon {
+    font-size: 30px;
+    background: -webkit-linear-gradient(#263450, $color-hover);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.table-chart {
+    canvas {
+        max-width: 958px !important;
+        margin: 0 auto;
+        padding-right: 30px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .date-btn {
+        width: 100px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .search-btn {
+        max-width: 220px;
+        text-align: center !important;
+    }
+    .form-stock {
+        h2 {
+            text-align: center;
+        }
+        form {
+            justify-content: center;
+        }
+    }
+    .auth-message {
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .form-stock {
+        form {
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
+@media only screen and (max-width: 432px) {
+    #d-btn2, .search-btn {
+        margin-right: 10px;
+    }
+    .form-stock {
+        margin-left: 20px;
+    }
 }

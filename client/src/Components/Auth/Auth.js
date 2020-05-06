@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import Login from './login/login';
-import Register from './register/register';
+import LoginPage from './login/login.page';
+import RegisterPage from './register/register.page';
 import './auth.scss';
 
 
@@ -12,9 +12,10 @@ const Auth = (props) => {
 
     return (
         <section className="form auth">
-            {props.path === '/login' ? <Login /> : <Register />}
+            {props.path === '/login' ? <LoginPage /> : <RegisterPage />}
         </section>
     );
 }
+
 
 export default Auth;

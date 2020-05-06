@@ -13,7 +13,7 @@ const NavAuthItems = (props) => {
                 <NavLink to="/" className="nav-item nav-link">Home</NavLink>
             </li>
             <li className="nav-item">
-                <NavLink to="/" onClick={logout} className="nav-item nav-link">Logout</NavLink>
+                <button onClick={logout} className="nav-item nav-item-btn nav-link">Logout</button>
             </li>
         </ul>
     )

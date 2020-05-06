@@ -8,7 +8,7 @@ import useAuth from '../../../hooks/useAuth'
 import { renderInput, validate } from '../helper.functions.js'
 
 
-const Register = (props) => {
+const RegisterPage = (props) => {
 
     const { status, isLoading, error, run } = useAsync()
     const { register, loggedIn } = useAuth()
@@ -27,11 +27,11 @@ const Register = (props) => {
         <div className="register">
             <Form onSubmit={onSubmit} validate={(values) => validate(values, false)}>
                 {({handleSubmit, submitting}) => <form onSubmit={handleSubmit}>
-                    <div className="text-danger error-msg"> {error ? error.message : ''} </div>
+                    <div className="text-danger error-msg"> {error ? error.data.message : ''} </div>
                     <Field placeholder="email" type="email" name="email" component={renderInput} />
                     <Field placeholder="password" type="password" name="password" component={renderInput} />
                     <div className="loading-btn">
-                        <button type="submit" disabled={submitting} className="register-btn">Register</button>
+                        <button type="submit" disabled={submitting} className="comm-btn reg-btn">Register</button>
                         { isLoading ? <Loading classes="spin-sm" /> : null }
                     </div>
                     <div className="form-group mt-5 pb-5">
@@ -43,4 +43,4 @@ const Register = (props) => {
 	);
 }
 
-export default Register;
+export default RegisterPage;

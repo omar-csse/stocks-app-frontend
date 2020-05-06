@@ -8,7 +8,7 @@ export const passwordRegExp = RegExp(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/);
 
 export const renderInput = ({input, meta, type, placeholder}) =>
     <div className="position-relative form-group form-input">
-        <input placeholder={placeholder} className={`form-control ${meta.touched && meta.invalid ? 'border-danger' : ''}`} type={type} {...input}/>
+        <input placeholder={placeholder} className={`comm-input ${meta.touched && meta.invalid ? 'border-danger' : ''}`} type={type} {...input}/>
         { meta.dirty && meta.invalid && <div className="invalid-feedback d-block">{meta.error}</div>}
         { !meta.dirty && meta.touched && <div className="invalid-feedback d-block">Cannot be empty</div>}
     </div>

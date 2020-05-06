@@ -1,24 +1,30 @@
 import React, { useMemo } from 'react'
-import { useParams } from 'react-router-dom'
+import { Line } from 'react-chartjs-2'
 import useFetch from '../../hooks/useFetch'
 import tableHeader from './header'
 import Table from '../table/table'
 import Error from '../error/error'
 import Loading from '../loading/loading'
+import { filterstock, prepChartData } from '../../utlis/filterstock'
+import useAuth from '../../hooks/useAuth'
 import './stock.scss'
 
 
-const Stock = (props) => {
+const Stock = ({ symbol, query, chart }) => {
 
-    const { symbol } = useParams();
-    const options = useMemo(() => ({method: 'GET'}), []);
-    const { data, error, res } = useFetch(`http://131.181.190.87:3000/stocks/${symbol}`, options)
+    const { loggedIn } = useAuth()
+    const { data, error, res } = useFetch(`stocks/${loggedIn ? query : symbol}`)
 
     const columns = useMemo(() => tableHeader, [])
-    const memData = useMemo(() => data, [data])
+    const memData = useMemo(() => data ? filterstock(data) : data, [data])
 
     if (error) return <Error error={error} res={res} classes="stock-error"/>
-    if (data) return <Table classes="stock stock-table" clickable={false} columns={columns} data={[memData]} />
+    if (data) return (
+        <div className="table-chart">
+            <Table classes="stock-table mb-5" clickable={false} pgsize={6} columns={columns} data={memData} />
+            { chart && loggedIn ? <Line data={prepChartData(data)} /> : null }
+        </div>
+    )
 
     return <Loading classes="stock spin-lg" />
 }

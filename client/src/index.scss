@@ -1,7 +1,25 @@
-$background-color: #051825;
-$secondary-background: #061F2F;
-$color: #0090D4;
+$background-color: #161e26;
+$secondary-color: #051825;
+$secondary-color-table: #072132;
+$table-hover: #203441;
+
+$color: #0073A9;
+$light-color: #13A8EF;
 $color-hover: #7CD5FF;
+$dark-color: #044260;
+
+$btn-light-blue-text: #f8f8ff;
+$btn-light-blue-bg: #072132;
+
+$btn-light-cyan-text: #072132;
+$btn-light-cyan-bg: $light-color;
+
+$btn-dark-cyan-text: #051825;
+$btn-dark-cyan-bg: $color;
+
+$btn-dark-white-text: #f8f8ff;
+$btn-light-white-text: white;
+
 
 * {
     outline: none !important;

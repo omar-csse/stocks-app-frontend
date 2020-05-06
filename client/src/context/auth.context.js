@@ -19,7 +19,7 @@ const AuthProvider = (props) => {
     const value = useMemo(() => ({ login, logout, register, loggedIn}), [ login, logout, register, loggedIn])
     
     if (isLoading) return <Loading classes="spin-lg" />
-    if (isError) return <Error error={error} res={{status: 500, message: 'SERVER ERROR'}} />
+    if (isError) return <Error error={error} />
     if (isIdle || isSuccess) return <AuthContext.Provider value={value} {...props} />  
 }
   

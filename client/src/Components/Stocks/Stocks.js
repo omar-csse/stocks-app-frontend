@@ -9,14 +9,13 @@ import Loading from '../loading/loading'
 
 const Stocks = ({ query }) => {
 
-    const options = useMemo(() => ({method: 'GET'}), []);
-    const { data, error, res } = useFetch(`http://131.181.190.87:3000/stocks/symbols${query}`, options, query)
+    const { data, error, loading } = useFetch(`stocks/symbols${query}`)
 
     const columns = useMemo(() => tableHeader, [])
     const memData = useMemo(() => data, [data])
 
-    if (error) return <Error error={error} res={res} />
-    if (data) return <Table classes="stocks-table" clickable={true} columns={columns} data={memData} />
+    if (error) return <Error error={error} />
+    if (data && !loading) return <Table classes="stocks-table" clickable={true} pgsize={25} columns={columns} data={memData} />
 
     return <Loading classes="spin-lg" />
 }
