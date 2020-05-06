@@ -8,7 +8,7 @@ const Registered = ({ email }) => {
     const [ redirect, setRedirect ] = useState(false)
 
     useEffect(() => {
-        const timer = setTimeout(() => setRedirect(true), 500000)
+        const timer = setTimeout(() => setRedirect(true), 5000)
         return () => window.clearTimeout(timer)
     }, [])
 

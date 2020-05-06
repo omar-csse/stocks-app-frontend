@@ -34,6 +34,7 @@
 .form-stock, .auth-message {
     max-width: 900px;
     margin: 0 auto;
+    padding-left: 5px;
 }
 
 .date-btn {
@@ -111,6 +112,8 @@
         text-align: center !important;
     }
     .form-stock {
+        padding: 0px;
+        margin: 0px;
         h2 {
             text-align: center;
         }
@@ -137,6 +140,6 @@
         margin-right: 10px;
     }
     .form-stock {
-        margin-left: 20px;
+        margin-left: 10px;
     }
 }

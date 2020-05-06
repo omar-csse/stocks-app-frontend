@@ -16,7 +16,7 @@
 }
 
 .stocks-table {
-    min-height: 1157px;
+    min-height: 1193px;
 }
 
 .comm-table {
@@ -167,17 +167,16 @@
             white-space: pre-wrap;
             text-align: left;
         }
-        min-height: 1500px;
+        min-height: 1600px;
     }
 }
 
 @media only screen and (max-width: 456px) {
     .stocks-table table {
-        min-height: 1600px;
         font-size: 11.5px !important;
     }
     .stock-table table {
-        min-height: 400px;
+        min-height: 445px;
     }
 }
 
@@ -190,6 +189,6 @@
 @media only screen and (max-width: 375px) {
     .stock-table table {
         font-size: 12px;
-        min-height: 355px;
+        min-height: 385px;
     }
 }

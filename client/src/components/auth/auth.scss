@@ -116,24 +116,12 @@
         color: $color;  
     }
     .registered-header {
-        background-color: $secondary-color-table !important;
+        background-color: $secondary-color-table;
     }
     .registered-body {
-        background-color: $table-hover !important;
+        background-color: $table-hover;
     }
 }
-
-// .light {
-//     .registered-mail {
-//         color: $color;  
-//     }
-//     .registered-header {
-//         background-color: $secondary-color-table !important;
-//     }
-//     .registered-body {
-//         background-color: $table-hover !important;
-//     }
-// }
 
 @media screen and (max-width: 500px) {
     .auth input {
