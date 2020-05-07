@@ -13,6 +13,7 @@ const StockPage = (props) => {
     const { symbol } = useParams();
     const location = useLocation();
     const [ isLoading, setIsLoading ] = useState(false)
+    const [stockname, setStockName] = useState(null)
     const [query, setQuery] = useState(symbol.toUpperCase())
     const [fromD, setFromD] = useState(new Date());
     const [toD, setToD] = useState(new Date());
@@ -22,7 +23,11 @@ const StockPage = (props) => {
         document.getElementById("navbarSupportedContent").classList.remove("show");
     }, []);
 
-    useEffect(() => { return () => {localStorage.setItem('stockpath', `/stock/${symbol}`)}}, [symbol])
+    useEffect(() => {
+        setStockName(location.state ? location.state.stockname : null)
+    }, [setStockName, location])
+
+    useEffect(() => { return () => localStorage.setItem('stockpath', `/stock/${symbol}`) }, [symbol])
 
     const fetchStock = useCallback((e) => {
         e.preventDefault()
@@ -33,10 +38,15 @@ const StockPage = (props) => {
         setIsLoading(false)
     }, [isLoading, symbol, loggedIn, fromD, toD])
 
+    const getStockname = () => {
+        let storageStockname = localStorage.getItem('stockname')
+        return stockname || storageStockname || ''
+    }
+
 	return (
 		<div className="stock">
             <div className="form-stock">
-                <h2>{symbol.toUpperCase()} {location.state ? ` - ${location.state.stockname}`:''}</h2>
+                <h2>{symbol.toUpperCase()} - {getStockname()}</h2>
                 <form className={'form-inline ' + (!loggedIn ? 'unauth-form': null) }>
                     <DatePicker className="date-btn" selected={fromD} onChange={date => setFromD(date)} />
                     <h4 className="date-icon">&#x2192;</h4>

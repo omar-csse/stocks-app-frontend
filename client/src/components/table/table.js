@@ -14,6 +14,7 @@ const Table = ({ classes, clickable, columns, data, pgsize, id }) => {
     } = useTable( { columns,data, initialState: { pageIndex: 0, pageSize: pgsize }, }, usePagination )
 
     const handleRow = (symbol, name) => {
+        localStorage.setItem('stockname', name)
         history.push({pathname: `stock/${symbol}`, state: { stockname: name }})        
     }
 

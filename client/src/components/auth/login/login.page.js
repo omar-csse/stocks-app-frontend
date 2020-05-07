@@ -15,7 +15,6 @@ const LoginPage = (props) => {
 	const onSubmit = (values) => run(login(values))
 
     if (status === 'resolved' || loggedIn) {
-        console.log(props.history)
         return <Redirect to={localStorage.getItem('stockpath') || '/'} />
     }
 

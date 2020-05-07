@@ -11,6 +11,7 @@ const HomePage = (props) => {
     useEffect(() => {
         document.getElementById("navbarSupportedContent").classList.remove("show");
         localStorage.removeItem('stockpath')
+        localStorage.removeItem("stockname")
     }, []);
 
     const handleInput = (e) => {

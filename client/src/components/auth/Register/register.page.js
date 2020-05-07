@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, Redirect} from 'react-router-dom';
 import { Form, Field } from 'react-final-form'
 import Loading from '../../loading/loading'
@@ -13,6 +13,8 @@ const RegisterPage = (props) => {
     const { status, isLoading, error, run } = useAsync()
     const { register, loggedIn } = useAuth()
     const [ email, setEmail ] = useState('')
+
+    useEffect(() => { localStorage.removeItem("stockpath") }, [])
 
     const onSubmit = (values) => {
         setEmail(values.email)
