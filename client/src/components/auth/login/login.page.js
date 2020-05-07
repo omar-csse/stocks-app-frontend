@@ -4,7 +4,7 @@ import { Form, Field } from 'react-final-form'
 import Loading from '../../loading/loading'
 import useAsync from '../../../hooks/useAsync'
 import useAuth from '../../../hooks/useAuth'
-import { renderInput, validate } from '../helper.functions.js'
+import { renderInput, validate, getErrorMessage } from '../helper.functions.js'
 
 
 const LoginPage = (props) => {
@@ -22,7 +22,7 @@ const LoginPage = (props) => {
         <div className="login">
             <Form onSubmit={onSubmit} validate={(values) => validate(values, true)}>
                 {({handleSubmit, submitting}) => <form onSubmit={handleSubmit}>
-                    <div className="text-danger error-msg"> {error ? error.data.message : null} </div>
+                    <div className="text-danger error-msg"> {error ? getErrorMessage(error) : null} </div>
                     <Field placeholder="email" type="email" name="email" component={renderInput} />
                     <Field placeholder="password" type="password" name="password" component={renderInput} />
                     <div className="loading-btn">

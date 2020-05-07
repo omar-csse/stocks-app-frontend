@@ -2,11 +2,10 @@ import React from 'react'
 import * as emailValidator from 'email-validator';
 
 
-export const usernameRegExp = RegExp(/^(?=.*[A-Za-z])(?!([-]|[.]|[_]))(?!.*[_.-]{2,})[A-Za-z0-9_.-]{3,30}\b(?!([-]|[.]|[_]))$/);
-export const passwordRegExp = RegExp(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/);
+const passwordRegExp = RegExp(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/);
 
 
-export const renderInput = ({input, meta, type, placeholder}) =>
+const renderInput = ({input, meta, type, placeholder}) =>
     <div className="position-relative form-group form-input">
         <input placeholder={placeholder} className={`comm-input ${meta.touched && meta.invalid ? 'border-danger' : ''}`} type={type} {...input}/>
         { meta.dirty && meta.invalid && <div className="invalid-feedback d-block">{meta.error}</div>}
@@ -14,7 +13,7 @@ export const renderInput = ({input, meta, type, placeholder}) =>
     </div>
 
 
-export const validate = (values, login) => {
+const validate = (values, login) => {
     const errors = {}
 
 	if (!emailValidator.validate(values.email) || values.email === undefined) {
@@ -27,3 +26,13 @@ export const validate = (values, login) => {
 
 	return errors;
 }
+
+const getErrorMessage = (error) => {
+    if (error.data === undefined) {
+        return error.message
+    } 
+    return error.data.message
+}
+
+
+export { renderInput, validate, getErrorMessage }

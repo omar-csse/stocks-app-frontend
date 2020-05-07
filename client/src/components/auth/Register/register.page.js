@@ -5,7 +5,7 @@ import Loading from '../../loading/loading'
 import Registered from './registered'
 import useAsync from '../../../hooks/useAsync'
 import useAuth from '../../../hooks/useAuth'
-import { renderInput, validate } from '../helper.functions.js'
+import { renderInput, validate, getErrorMessage } from '../helper.functions.js'
 
 
 const RegisterPage = (props) => {
@@ -29,7 +29,7 @@ const RegisterPage = (props) => {
         <div className="register">
             <Form onSubmit={onSubmit} validate={(values) => validate(values, false)}>
                 {({handleSubmit, submitting}) => <form onSubmit={handleSubmit}>
-                    <div className="text-danger error-msg"> {error ? error.data.message : ''} </div>
+                    <div className="text-danger error-msg"> {error ? getErrorMessage(error) : null} </div>
                     <Field placeholder="email" type="email" name="email" component={renderInput} />
                     <Field placeholder="password" type="password" name="password" component={renderInput} />
                     <div className="loading-btn">
