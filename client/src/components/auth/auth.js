@@ -8,6 +8,7 @@ const Auth = (props) => {
 
     useEffect(() => {
         document.getElementById("navbarSupportedContent").classList.remove("show");
+        window.scrollTo(0, 0)
     }, []);
 
     return (
