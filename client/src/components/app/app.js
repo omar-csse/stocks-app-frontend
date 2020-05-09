@@ -6,6 +6,7 @@ import Home from '../home/home.page';
 import Footer from '../footer/footer';
 import Auth from '../auth/auth';
 import Stock from '../stock/stock.page';
+import Error from '../error/error';
 import { AuthProvider } from '../../context/auth.context'
 
 
@@ -22,7 +23,7 @@ const App = () => {
                             <Route exact path="/stock/:symbol" component={Stock} />
                             <Route exact path="/register" render={() => <Auth path="/register"/>} />
                             <Route exact path="/login" render={() => <Auth path="/login"/>} />
-                            <Route component={Home} />
+                            <Route component={() => <Error error={ {message: "404 - Page is not found"} } classes="page404"/> } />
                         </Switch>
                     </div>
                 </AuthProvider>
