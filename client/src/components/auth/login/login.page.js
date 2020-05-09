@@ -4,7 +4,7 @@ import { Form, Field } from 'react-final-form'
 import Loading from '../../loading/loading'
 import useAsync from '../../../hooks/useAsync'
 import useAuth from '../../../hooks/useAuth'
-import { renderInput, validate, getErrorMessage } from '../helper.functions.js'
+import { renderInput, validate, getErrorMessage } from '../../../utlis/auth.helper.js'
 
 
 const LoginPage = (props) => {

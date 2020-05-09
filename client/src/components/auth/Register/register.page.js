@@ -5,7 +5,7 @@ import Loading from '../../loading/loading'
 import Registered from './registered'
 import useAsync from '../../../hooks/useAsync'
 import useAuth from '../../../hooks/useAuth'
-import { renderInput, validate, getErrorMessage } from '../helper.functions.js'
+import { renderInput, validate, getErrorMessage } from '../../../utlis/auth.helper.js'
 
 
 const RegisterPage = (props) => {
