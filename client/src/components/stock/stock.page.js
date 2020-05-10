@@ -21,6 +21,7 @@ const StockPage = (props) => {
 
     useEffect(() => {
         document.getElementById("navbarSupportedContent").classList.remove("show");
+        localStorage.removeItem("stockname")
         window.scrollTo(0, 0)
     }, []);
 
@@ -28,7 +29,10 @@ const StockPage = (props) => {
         setStockName(location.state ? location.state.stockname : null)
     }, [setStockName, location])
 
-    useEffect(() => { return () => localStorage.setItem('stockpath', `/stock/${symbol}`) }, [symbol])
+    useEffect(() => { return () => {
+        localStorage.setItem('stockpath', `/stock/${symbol}`) 
+        localStorage.setItem("stockname", stockname)
+    }}, [symbol, stockname])
 
     const fetchStock = useCallback((e) => {
         e.preventDefault()
@@ -40,8 +44,8 @@ const StockPage = (props) => {
     }, [isLoading, symbol, loggedIn, fromD, toD])
 
     const getStockname = () => {
-        let storageStockname = localStorage.getItem('stockname')
-        return stockname || storageStockname || ''
+        let storageStockname = localStorage.getItem('stockname') ? localStorage.getItem('stockname') : ''
+        return stockname || storageStockname
     }
 
 	return (

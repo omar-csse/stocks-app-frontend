@@ -15,7 +15,7 @@ const LoginPage = (props) => {
 	const onSubmit = (values) => run(login(values))
 
     if (status === 'resolved' || loggedIn) {
-        return <Redirect to={localStorage.getItem('stockpath') || '/'} />
+        return <Redirect to={{pathname:localStorage.getItem('stockpath') || '/', state: {stockname: localStorage.getItem("stockname") || ''}}} />
     }
 
 	return (
