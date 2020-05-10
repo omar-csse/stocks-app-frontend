@@ -19,11 +19,11 @@ const App = () => {
                     <Nav />
                     <div className="container">
                         <Switch>
-                            <Route exact path="/" component={Home} />
-                            <Route exact path="/stock/:symbol" component={Stock} />
+                            <Route exact path="/" render={() => <Home/> } />
+                            <Route exact path="/stock/:symbol" render={() => <Stock/> } />
                             <Route exact path="/register" render={() => <Auth path="/register"/>} />
                             <Route exact path="/login" render={() => <Auth path="/login"/>} />
-                            <Route component={() => <Error error={ {message: "404 - Page is not found"} } classes="page404"/> } />
+                            <Route render={() => <Error error={ {message: "404 - Page is not found"} } classes="page404"/> } />
                         </Switch>
                     </div>
                 </AuthProvider>
