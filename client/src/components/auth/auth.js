@@ -4,16 +4,17 @@ import RegisterPage from './register/register.page';
 import './auth.scss';
 
 
-const Auth = (props) => {
+const Auth = ( { path } ) => {
+
+    useEffect(() => { window.scrollTo(0, 0) }, [])
 
     useEffect(() => {
         document.getElementById("navbarSupportedContent").classList.remove("show");
-        window.scrollTo(0, 0)
-    }, []);
+    }, [path]);
 
     return (
         <section className="form auth">
-            {props.path === '/login' ? <LoginPage /> : <RegisterPage />}
+            {path === '/login' ? <LoginPage /> : <RegisterPage />}
         </section>
     );
 }
