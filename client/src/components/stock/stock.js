@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { Line } from 'react-chartjs-2'
 import useFetch from '../../hooks/useFetch'
-import tableHeader from './header'
+import tableHeader from '../../utlis/stock.theader'
 import Table from '../table/table'
 import Error from '../error/error'
 import Loading from '../loading/loading'

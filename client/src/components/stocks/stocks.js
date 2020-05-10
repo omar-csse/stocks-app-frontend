@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import './stocks.scss'
 import useFetch from '../../hooks/useFetch'
-import tableHeader from './header'
+import tableHeader from '../../utlis/stocks.theader'
 import Table from '../table/table'
 import Error from '../error/error'
 import Loading from '../loading/loading'
