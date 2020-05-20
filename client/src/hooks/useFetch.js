@@ -9,14 +9,22 @@ const useFetch = (endpoint, deps) => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
+
+        const abortController = new AbortController()
+        const signal = abortController.signal;
+
         setLoading(true)
         client(endpoint)
             .then(data => {
-                setData(data)
-                setError(null)
+                if (!signal.aborted) {
+                    setData(data)
+                    setError(null)
+                }
             })
-            .catch(err => setError(err))
-            .finally(setLoading(false))
+            .catch(err => !signal.aborted ? setError(err) : null)
+            .finally(!signal.aborted ? setLoading(false) : null)
+
+        return () => { abortController.abort() };
 
     }, [endpoint, deps])
     
