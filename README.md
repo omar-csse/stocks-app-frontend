@@ -1,4 +1,4 @@
-# Stocks App
+# Stocks App (Frontend - React)
 
 ## Available Scripts inside (client)
 
