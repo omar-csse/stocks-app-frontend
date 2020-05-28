@@ -15,7 +15,7 @@ const client = async (endpoint, body) => {
     
     if (body) config.body = JSON.stringify(body)
   
-    const res = await fetch(`http://131.181.190.87:3000/${endpoint}`, config)
+    const res = await fetch(`http://stocks-backend/${endpoint}`, config)
 
     if (res.status === 401) logout()
 
