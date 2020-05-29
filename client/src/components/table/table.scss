@@ -5,6 +5,8 @@
     max-width: 900px;
     margin: 0 auto;
     margin-top: 80px;
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
 
@@ -56,6 +58,7 @@
         border-radius: 5px;
         border: none;
         color: #f8f8f8;
+        cursor: pointer;
     }
 
     button:hover {
@@ -69,6 +72,7 @@
     }
 
     .pagination-select , .pagination-number, .pagination-buttons {
+        margin: 0 auto;
         margin-top: 15px;
     }
 
@@ -77,10 +81,12 @@
         width: 120px;
     }
 
+    width: 100%;
     justify-content: center;
     padding-bottom: 15px;
     border-top: 5px solid $dark-color;
-    display: contents !important;
+    display: flex;
+    flex-direction: column;
 }
 
 .dark {
